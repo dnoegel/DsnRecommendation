@@ -1,0 +1,22 @@
+{
+  "name": "dnoegel/recommendation",
+  "authors": [
+    {
+      "name": "Daniel Nögel",
+      "email": "github@post.noegelmail.de"
+    }
+  ],
+  "require": {
+    "everyman/neo4jphp": "dev-master",
+    "dnoegel/lazy-subscriber": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shopware\\Plugins\\DsnRecommendation\\": ".",
+      "Dnoegel\\Tests\\": "tests/"
+    }
+  }
+}
