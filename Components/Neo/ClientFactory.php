@@ -2,10 +2,12 @@
 
 namespace Shopware\Plugins\DsnRecommendation\Components\Neo;
 
+/**
+ * Class ClientFactory will create the neo4j client object
+ * @package Shopware\Plugins\DsnRecommendation\Components\Neo
+ */
 class ClientFactory
 {
-
-
     public function factory()
     {
         $host = Shopware()->Config()->getByNamespace('DsnRecommendation', 'host');
@@ -17,6 +19,5 @@ class ClientFactory
         $client->getTransport()
             ->setAuth($user, $pass);
         return $client;
-
     }
 }

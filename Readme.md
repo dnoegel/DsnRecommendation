@@ -2,10 +2,14 @@
 This is an example, WIP implementation of a recommendation engine for Shopware based on the
 neo4j graph database.
 
+# Why?
+Recommendations are an ideal playing field for graph databases - so this is basically evaluating,
+how such a product recommendation engine based on neo4j might look like in Shopware.
+
 # How to use
 Get neo4j running
 * Go to the [neo4j homepage](neo4j.com/download/) and download the neo4j server
-* run the neo4j server (e.g. `./bin/neo4j run`)
+* run the neo4j server (e.g. `./bin/neo4j start`)
 * go to the neo4j backend and set / test your password (typically `http://localhost:7474`)
 
 Get this plugin running

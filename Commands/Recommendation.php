@@ -9,6 +9,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Shopware\Commands\ShopwareCommand;
 
+/**
+ * Class Recommendation will export local Shopware orders to neo4j
+ * @package Shopware\Plugins\DsnRecommendation\Commands
+ */
 class Recommendation extends ShopwareCommand
 {
     /**
@@ -45,7 +49,7 @@ class Recommendation extends ShopwareCommand
                 null
             )
             ->setHelp(<<<EOF
-The <info>%command.name%</info> implements a command.
+The <info>%command.name%</info> will export your local orders to the neo4j graph database.
 EOF
             );
         ;
@@ -59,7 +63,6 @@ EOF
         $this->prepareOptions($input);
 
         $this->container->get('dsn_recommendation.bulk_exporter')->run();
-
     }
 
     /**

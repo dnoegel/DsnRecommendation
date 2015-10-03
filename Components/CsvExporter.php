@@ -16,19 +16,23 @@ class CsvExporter
         $this->connection = $connection;
     }
 
+    /**
+     * Will export all orders to a (random) csv file
+     * @return string
+     */
     public function export()
     {
-        $csvPath = $this->createCsv(
+        return $this->createCsv(
             $this->getOrderData()
         );
-
-        return $csvPath;
     }
 
     /**
+     * Read all required fields from the order table.
+     * Warning: The current implementation is quite naive, everything is read in one query
      * @return array
      */
-    protected function getOrderData()
+    private function getOrderData()
     {
         $data = $this->connection->fetchAll('
             SELECT name, articleID, sob.userID, CONCAT(firstname, " ", lastname) as userName
@@ -44,10 +48,11 @@ class CsvExporter
     }
 
     /**
+     * Write the passed order $data to a random CSV file
      * @param $data
      * @return string
      */
-    protected function createCsv($data)
+    private function createCsv($data)
     {
         $csvName = \Shopware\Components\Random::getAlphanumericString(20) . '.csv';
         $relativePath = 'files/' . $csvName;

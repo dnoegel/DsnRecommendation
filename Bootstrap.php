@@ -18,7 +18,8 @@
  */
 class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Components_Plugin_Bootstrap
 {
-    public function getVersion() {
+    public function getVersion()
+    {
         $info = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR .'plugin.json'), true);
         if ($info) {
             return $info['currentVersion'];
@@ -82,7 +83,6 @@ class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Compone
      */
     public function onStartDispatch(Enlight_Event_EventArgs $args)
     {
-
         $this->registerMyComponents();
                 
 
@@ -102,9 +102,11 @@ class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Compone
         $this->Application()->Events()->addSubscriber(
             new \Shopware\Plugins\DsnRecommendation\Subscriber\Container(Shopware()->Container())
         );
-
     }
 
+    /**
+     * require the composer autoloader
+     */
     private function registerAutoloader()
     {
         require_once __DIR__ . '/vendor/autoload.php';

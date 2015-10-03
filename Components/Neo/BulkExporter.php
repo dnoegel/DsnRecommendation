@@ -5,6 +5,11 @@ namespace Shopware\Plugins\DsnRecommendation\Components\Neo;
 use Everyman\Neo4j\Cypher\Query;
 use Shopware\Plugins\DsnRecommendation\Components\CsvExporter;
 
+/**
+ * Class BulkExporter is responsible for running the correct queries, to export the Shopware order CSV
+ * to neo4j
+ * @package Shopware\Plugins\DsnRecommendation\Components\Neo
+ */
 class BulkExporter
 {
     /**
@@ -38,8 +43,5 @@ EOD;
         $query->getResultSet();
 
         unlink($path);
-
-
-
     }
 }
