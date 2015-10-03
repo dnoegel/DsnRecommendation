@@ -25,22 +25,25 @@ You should see an output like this:
 
 # Status
 Currently only the order data is exported, the actual recommendation queries are not yet implemented.
-They might look like this:
+They might look like this
 
 ```
 // find customer who ordered same items
-MATCH (u:Customer)-[r1:purchased]->(p:item)<-[r2:purchased]-(u2:Customer),
+MATCH (u:Customer)-[r1:purchased]->(p:Item)<-[r2:purchased]-(u2:Customer),
 // find items of those customers
-(u2:Customer)-[:purchased]->(p2:item)
-// only for John
-WHERE u.name = "John"
-// make sure, that John didn't order that product, yet
+(u2:Customer)-[:purchased]->(p2:Item)
+// only for this user
+WHERE u.name = "Max Mustermann"
+// make sure, that the current user  didn't order that product, yet
 AND not (u)-[:purchased]->(p2:item)
 // count / group by u2, so every user-path only counts once
 RETURN p2.name, count(DISTINCT u2) as frequency
 ORDER BY frequency DESC
 ```
 
+and might result in something like this:
+
+![neo4j result](docs/result.png)
 # License
 
 Please see [License File](LICENSE) for more information.
