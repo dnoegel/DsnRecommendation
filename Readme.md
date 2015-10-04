@@ -23,6 +23,14 @@ You should see an output like this:
 
 ![neo4j graph](docs/graph2.png)
 
+This graphs shows four "purchasing group". The group at the bottom left is Shopware's
+demo data.
+The other three "purchase groups" are the demo data of this plugin: Each of this
+groups simulates buying behaviour for another topic, e.g. "card and board games",
+"computer games" and "outdoor games". The groups would be linked in reality,
+for the purpose of debugging and experimenting around, smaller, separated groups
+seem to be more useful.
+
 # Demo data
 In order to have some meaningful demo data, that makes checking the results easier,
 there is a CLI tool command, that will create items, customers and orders:
@@ -54,7 +62,7 @@ MATCH (u:Customer)-[r1:purchased]->(p:Item)<-[r2:purchased]-(u2:Customer),
 // find items of those customers
 (u2:Customer)-[:purchased]->(p2:Item)
 // only for this user
-WHERE u.name = "Max Mustermann"
+WHERE u.name = "Felix Frechmann"
 // make sure, that the current user  didn't order that product, yet
 AND not (u)-[:purchased]->(p2:Item)
 // count / group by u2, so every user-path only counts once
@@ -65,6 +73,20 @@ ORDER BY frequency DESC
 and might result in something like this:
 
 ![neo4j result](docs/result.png)
+
+Looking at the graph example above, you will see, that this query
+recommends "outdoor game: water fight" and "outdoor game: soccer" to the customer
+"Felix Frechmann". The reasoning is basically the following:
+
+* Felix bought "rope jumping" and "gold pro"
+* So did Kathrin and Max
+* Kathrin and Max also bought the game "wate fight"
+* Kathrin bought the game "soccer"
+
+So basically there are two paths to "water fight" and one path to "soccer"
+for Felix. For this reason, the "water fight" recommendation is higher ranked
+than the "soccer" recommendation.
+
 # License
 
 Please see [License File](LICENSE) for more information.
