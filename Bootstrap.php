@@ -72,7 +72,8 @@ class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Compone
 
         // You can easily add more commands here
         return new \Doctrine\Common\Collections\ArrayCollection(array(
-            new \Shopware\Plugins\DsnRecommendation\Commands\Recommendation()
+            new \Shopware\Plugins\DsnRecommendation\Commands\Recommendation(),
+            new \Shopware\Plugins\DsnRecommendation\Commands\RecommendationDemoData(),
         ));
     }
 

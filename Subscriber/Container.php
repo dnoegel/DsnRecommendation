@@ -3,7 +3,11 @@
 namespace Shopware\Plugins\DsnRecommendation\Subscriber;
 
 use Dnoegel\LazySubscriber\LazySubscriber;
+use Shopware\Components\Api\Manager;
+use Shopware\Components\Api\Resource\Article;
 use Shopware\Plugins\DsnRecommendation\Components\CsvExporter;
+use Shopware\Plugins\DsnRecommendation\Components\DemoData\DemoData;
+use Shopware\Plugins\DsnRecommendation\Components\DemoData\Items;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\BulkExporter;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\ClientFactory;
 use Symfony\Component\DependencyInjection\Container as DIC;
@@ -17,6 +21,14 @@ class Container extends LazySubscriber
     public static function define()
     {
         return [
+            'dsn_recommendation.demo' => function() {
+                /** @var $article Article */
+                $article = Manager::getResource('article');
+
+                return new DemoData(
+                    new Items($article)
+                );
+            },
             'dsn_recommendation.bulk_exporter' => function (DIC $dic) {
                 return new BulkExporter(
                     $dic->get('dsn_recommendation.neo_client'),
