@@ -485,11 +485,11 @@ class Items
 
     public function create()
     {
+        foreach ($this->items as &$item) {
+            $item['descriptionLong'] = $item['mainDetail']['number'];
+        }
+
         $this->article->setResultMode(Article::HYDRATE_ARRAY);
         $result = $this->article->batch($this->items);
-
-        echo "<pre>";
-        print_r($result);
-        exit();
     }
 }

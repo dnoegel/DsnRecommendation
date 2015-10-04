@@ -6,6 +6,7 @@ use Dnoegel\LazySubscriber\LazySubscriber;
 use Shopware\Components\Api\Manager;
 use Shopware\Components\Api\Resource\Article;
 use Shopware\Plugins\DsnRecommendation\Components\CsvExporter;
+use Shopware\Plugins\DsnRecommendation\Components\DemoData\Customer;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\DemoData;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\Items;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\BulkExporter;
@@ -21,12 +22,15 @@ class Container extends LazySubscriber
     public static function define()
     {
         return [
-            'dsn_recommendation.demo' => function() {
+            'dsn_recommendation.demo' => function () {
                 /** @var $article Article */
                 $article = Manager::getResource('article');
+                /** @var $customer \Shopware\Components\Api\Resource\Customer */
+                $customer = Manager::getResource('customer');
 
                 return new DemoData(
-                    new Items($article)
+                    new Items($article),
+                    new Customer($customer)
                 );
             },
             'dsn_recommendation.bulk_exporter' => function (DIC $dic) {
