@@ -56,7 +56,7 @@ MATCH (u:Customer)-[r1:purchased]->(p:Item)<-[r2:purchased]-(u2:Customer),
 // only for this user
 WHERE u.name = "Max Mustermann"
 // make sure, that the current user  didn't order that product, yet
-AND not (u)-[:purchased]->(p2:item)
+AND not (u)-[:purchased]->(p2:Item)
 // count / group by u2, so every user-path only counts once
 RETURN p2.name, count(DISTINCT u2) as frequency
 ORDER BY frequency DESC
