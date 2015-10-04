@@ -229,7 +229,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo10',
+                'number' => 'demo11',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -250,7 +250,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo11',
+                'number' => 'demo12',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -271,7 +271,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo11',
+                'number' => 'demo13',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -292,7 +292,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo12',
+                'number' => 'demo14',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -313,7 +313,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo13',
+                'number' => 'demo15',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -334,7 +334,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo14',
+                'number' => 'demo16',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -355,7 +355,7 @@ class Items
                 ['path' => 'English|Gaming|Analog'],
             ],
             'mainDetail' => [
-                'number' => 'demo15',
+                'number' => 'demo17',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -376,7 +376,7 @@ class Items
                 ['path' => 'English|Gaming|Outdoor'],
             ],
             'mainDetail' => [
-                'number' => 'demo16',
+                'number' => 'demo18',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -397,7 +397,7 @@ class Items
                 ['path' => 'English|Gaming|Outdoor'],
             ],
             'mainDetail' => [
-                'number' => 'demo17',
+                'number' => 'demo19',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -418,7 +418,7 @@ class Items
                 ['path' => 'English|Gaming|Outdoor'],
             ],
             'mainDetail' => [
-                'number' => 'demo18',
+                'number' => 'demo20',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -439,7 +439,7 @@ class Items
                 ['path' => 'English|Gaming|Outdoor'],
             ],
             'mainDetail' => [
-                'number' => 'demo19',
+                'number' => 'demo21',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
@@ -460,7 +460,7 @@ class Items
                 ['path' => 'English|Gaming|Outdoor'],
             ],
             'mainDetail' => [
-                'number' => 'demo20',
+                'number' => 'demo22',
                 'active' => 1,
                 'prices' => [
                     ['customerGroupKey' => 'EK', 'price' => 33]
