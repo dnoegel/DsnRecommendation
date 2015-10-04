@@ -21,7 +21,28 @@ Get this plugin running
 If everything went well, go to the neo4j backend (`http://localhost:7474`) and run this query: `MATCH (n) RETURN n`.
 You should see an output like this:
 
-![neo4j graph](docs/reco.png)
+![neo4j graph](docs/graph2.png)
+
+# Demo data
+In order to have some meaningful demo data, that makes checking the results easier,
+there is a CLI tool command, that will create items, customers and orders:
+
+```
+./bin/console dsn:recommendation:demo
+```
+
+Be aware, that this is not recommended for production environments, as data might
+be corrupted or overwritten. Furthermore the demo items / customers / orders
+might have an implicit dependency on the Shopware developer demo data.
+
+After running this script, you need to re-export your orders to neo4j:
+
+```
+./bin/console dsn:neo4j:export
+```
+
+
+
 
 # Status
 Currently only the order data is exported, the actual recommendation queries are not yet implemented.

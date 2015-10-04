@@ -9,6 +9,7 @@ use Shopware\Plugins\DsnRecommendation\Components\CsvExporter;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\Customer;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\DemoData;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\Items;
+use Shopware\Plugins\DsnRecommendation\Components\DemoData\Order;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\BulkExporter;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\ClientFactory;
 use Symfony\Component\DependencyInjection\Container as DIC;
@@ -30,7 +31,8 @@ class Container extends LazySubscriber
 
                 return new DemoData(
                     new Items($article),
-                    new Customer($customer)
+                    new Customer($customer),
+                    new Order()
                 );
             },
             'dsn_recommendation.bulk_exporter' => function (DIC $dic) {
