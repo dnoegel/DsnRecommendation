@@ -12,6 +12,7 @@ use Shopware\Plugins\DsnRecommendation\Components\DemoData\Items;
 use Shopware\Plugins\DsnRecommendation\Components\DemoData\Order;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\BulkExporter;
 use Shopware\Plugins\DsnRecommendation\Components\Neo\ClientFactory;
+use Shopware\Plugins\DsnRecommendation\Components\Neo\SyncOrder;
 use Symfony\Component\DependencyInjection\Container as DIC;
 
 /**
@@ -23,6 +24,11 @@ class Container extends LazySubscriber
     public static function define()
     {
         return [
+            'dsn_recommendation.sync_service' => function(DIC $dic) {
+                return new SyncOrder(
+                    $dic->get('dsn_recommendation.neo_client')
+                );
+            },
             'dsn_recommendation.demo' => function () {
                 /** @var $article Article */
                 $article = Manager::getResource('article');

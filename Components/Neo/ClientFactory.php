@@ -10,10 +10,10 @@ class ClientFactory
 {
     public function factory()
     {
-        $host = Shopware()->Config()->getByNamespace('DsnRecommendation', 'host');
-        $port = Shopware()->Config()->getByNamespace('DsnRecommendation', 'port');
-        $user = Shopware()->Config()->getByNamespace('DsnRecommendation', 'user');
-        $pass = Shopware()->Config()->getByNamespace('DsnRecommendation', 'pass');
+        $host = Shopware()->Container()->getParameterBag()->get('shopware.neo4j.host');
+        $port = Shopware()->Container()->getParameterBag()->get('shopware.neo4j.port') ?: 7474;
+        $user = Shopware()->Container()->getParameterBag()->get('shopware.neo4j.user');
+        $pass = Shopware()->Container()->getParameterBag()->get('shopware.neo4j.pass');
 
         $client = new \Everyman\Neo4j\Client($host, $port);
         $client->getTransport()

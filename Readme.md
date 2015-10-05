@@ -15,6 +15,15 @@ Get neo4j running
 Get this plugin running
 * checkout this repo to `engine/Shopware/Plugins/Local/Core/DsnRecommendation`
 * run `composer install` in the plugin directory
+* add your neo4j credentials to the config.php file of your shopware shop:
+```
+    'neo4j' => array(
+        'host' => 'localhost',
+        'user' => 'neo4j',
+        'pass' => 'shopware',
+        'port' => ''
+    )
+```
 * install and activate this plugin in the plugin manager or from the console
 * in your SW directory run `./bin/console dsn:neo4j:export` in order to export all your order data to neo4j
 

@@ -34,13 +34,18 @@ class BulkExporter
 USING PERIODIC COMMIT
 
 LOAD CSV WITH HEADERS FROM "$url" AS row
-MERGE (customer:Customer { id: row.userId, name:row.userName})
-MERGE (item:Item { id:row.itemId, name:row.item })
+MERGE (customer:Customer { userId: row.userId, name:row.userName})
+MERGE (item:Item { itemId:row.itemId, name:row.item })
 CREATE UNIQUE (customer)-[:purchased]->(item);
 EOD;
 
         $query = new Query($this->client, $query);
         $query->getResultSet();
+
+        $query = new Query($this->client, 'CREATE INDEX ON :Customer(userId)');
+        $query->getResultSet();
+
+
 
         unlink($path);
     }
