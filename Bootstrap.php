@@ -88,7 +88,8 @@ class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Compone
                 
 
         $subscribers = array(
-            new \Shopware\Plugins\DsnRecommendation\Subscriber\Order()
+            new \Shopware\Plugins\DsnRecommendation\Subscriber\Order(),
+            new \Shopware\Plugins\DsnRecommendation\Subscriber\Recommendation()
         );
 
         foreach ($subscribers as $subscriber) {
