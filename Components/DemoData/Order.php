@@ -114,7 +114,6 @@ class Order
             ON d.orderID = o.id
             WHERE o.transactionID = "recommendation_demo"
         ');
-
     }
 
     /**

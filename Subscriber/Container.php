@@ -24,7 +24,7 @@ class Container extends LazySubscriber
     public static function define()
     {
         return [
-            'dsn_recommendation.sync_service' => function(DIC $dic) {
+            'dsn_recommendation.sync_service' => function (DIC $dic) {
                 return new SyncOrder(
                     $dic->get('dsn_recommendation.neo_client')
                 );

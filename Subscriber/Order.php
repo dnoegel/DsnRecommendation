@@ -20,12 +20,12 @@ class Order implements \Enlight\Event\SubscriberInterface
 
         $userName = $userData['billingaddress']['firstname'] . ' ' . $userData['billingaddress']['lastname'];
         $userId = $userData['billingaddress']['userID'];
-        $items = array_map(function($item) {
+        $items = array_map(function ($item) {
             return [
                 'id' => $item['id'],
                 'name' => $item['articlename']
             ];
-        }, array_filter($details, function($item) {
+        }, array_filter($details, function ($item) {
             return $item['modus'] == 0;
         }));
 
