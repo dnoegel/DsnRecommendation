@@ -96,6 +96,9 @@ So basically there are two paths to "water fight" and one path to "soccer"
 for Felix. For this reason, the "water fight" recommendation is higher ranked
 than the "soccer" recommendation.
 
+# Read more
+Find out more about this plugin and neo4j in general in the corresponding blog post: https://developers.shopware.com/blog/2015/10/14/graph-based-recommendation-engine-for-shopware/
+
 # License
 
 Please see [License File](LICENSE) for more information.
