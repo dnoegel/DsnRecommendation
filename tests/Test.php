@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @backupGlobals disabled
+ * @backupStaticAttributes disabled
+ */
 class PluginTest extends Shopware\Components\Test\Plugin\TestCase
 {
     protected static $ensureLoadedPlugins = array(
