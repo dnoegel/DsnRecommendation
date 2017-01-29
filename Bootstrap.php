@@ -85,7 +85,6 @@ class Shopware_Plugins_Core_DsnRecommendation_Bootstrap extends Shopware_Compone
     public function onStartDispatch(Enlight_Event_EventArgs $args)
     {
         $this->registerMyComponents();
-                
 
         $subscribers = array(
             new \Shopware\Plugins\DsnRecommendation\Subscriber\Order(),

@@ -24,13 +24,17 @@ class Customer
         "email" => "test@example.org",
         "accountMode" => 0,
         "languageId" => "1",
+        "firstname" => "Max",
+        "lastname" => "Mustermann",
+        "salutation" => "mr",
         "billing" => [
             "company" => "Muster GmbH",
+            "country" => "2",
             "department" => "",
-            "salutation" => "mr",
+            'firstname' => '',
+            'lastname' => '',
+            'salutation' => 'mr',
             "number" => "20001",
-            "firstName" => "Max",
-            "lastName" => "Mustermann",
             "street" => "Musterstr.",
             "streetNumber" => "55",
             "zipCode" => "55555",
@@ -62,10 +66,18 @@ class Customer
         foreach ($this->customers as $customerArray) {
             list($firsName, $lastName, $email) = $customerArray;
             $currentCustomer = $this->customerTemplate;
-            $currentCustomer['billing']['firstName'] = $firsName;
-            $currentCustomer['billing']['lastName'] = $lastName;
+            $currentCustomer['firstname'] = $firsName;
+            $currentCustomer['lastname'] = $lastName;
+            $currentCustomer['billing']['firstname'] = $lastName;
+            $currentCustomer['billing']['lastname'] = $lastName;
             $currentCustomer['email'] = $email;
-            $this->customer->create($currentCustomer);
+            try {
+                $this->customer->create($currentCustomer);
+            } catch (\Exception $e) {
+                echo "<pre>";
+                print_r($e->getTraceAsString());
+                exit();
+            }
         }
     }
 

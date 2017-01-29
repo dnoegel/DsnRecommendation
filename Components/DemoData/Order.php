@@ -70,11 +70,9 @@ class Order
          * Wrap all this into an transaction, as the code below
          * will create orders and details in a loop.
          */
-        Shopware()->Db()->beginTransaction();
         foreach ($this->orders as $order) {
             $this->createOrderFromArray($order);
         }
-        Shopware()->Db()->commit();
     }
 
     private function createOrderFromArray($orderInfo)

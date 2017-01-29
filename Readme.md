@@ -25,7 +25,9 @@ Get this plugin running
     )
 ```
 * install and activate this plugin in the plugin manager or from the console
-* in your SW directory run `./bin/console dsn:neo4j:export` in order to export all your order data to neo4j
+* in your SW directory run `./bin/console dsn:neo4j:export` in order to export all your order data to neo4j. Make sure
+that you properly configured your shop domain for this, so that the neo4j server will be able to fetch the generated
+CSV from your shop's HTTP address.
 
 If everything went well, go to the neo4j backend (`http://localhost:7474`) and run this query: `MATCH (n) RETURN n`.
 You should see an output like this:
