@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components\DemoData;
+namespace DsnRecommendation\Components\DemoData;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Components\Api\Resource;

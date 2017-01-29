@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Subscriber;
+namespace DsnRecommendation\Subscriber;
 
 class Recommendation implements \Enlight\Event\SubscriberInterface
 {
@@ -18,7 +18,7 @@ class Recommendation implements \Enlight\Event\SubscriberInterface
         $itemId = $view->getAssign('sArticle')['articleID'];
 
         $view->addTemplateDir(
-            __DIR__ . '/../Views'
+            __DIR__ . '/../Resources/views'
         );
 
         $result = $this->getRecommendationItems($itemId);
@@ -36,7 +36,7 @@ class Recommendation implements \Enlight\Event\SubscriberInterface
      */
     private function getRecommendationItems($itemId)
     {
-        /** @var \Shopware\Plugins\DsnRecommendation\Components\Neo\Recommendation $recommendationService */
+        /** @var \DsnRecommendation\Components\Neo\Recommendation $recommendationService */
         $recommendationService = Shopware()->Container()->get('dsn_recommendation.recommendation');
         $recommendations = $recommendationService->recommend($itemId);
 

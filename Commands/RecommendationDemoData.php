@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Commands;
+namespace DsnRecommendation\Commands;
 
 use Shopware\Components\Model\ModelManager;
 use Symfony\Component\Console\Input\InputArgument;
@@ -11,7 +11,7 @@ use Shopware\Commands\ShopwareCommand;
 
 /**
  * Class RecommendationDemoData will create recommendation demo data
- * @package Shopware\Plugins\DsnRecommendation\Commands
+ * @package DsnRecommendation\Commands
  */
 class RecommendationDemoData extends ShopwareCommand
 {

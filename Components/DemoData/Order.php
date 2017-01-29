@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components\DemoData;
+namespace DsnRecommendation\Components\DemoData;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Components\Random;
@@ -9,7 +9,7 @@ use Shopware\Components\Random;
  * Class Order will create demo orders. Be aware, that the orders created by
  * this script just meant for neo4j export - so you will probably not be able
  * to open them in the Shopware backend
- * @package Shopware\Plugins\DsnRecommendation\Components\DemoData
+ * @package DsnRecommendation\Components\DemoData
  */
 class Order
 {

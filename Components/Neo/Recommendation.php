@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components\Neo;
+namespace DsnRecommendation\Components\Neo;
 
 use Everyman\Neo4j\Cypher\Query;
 

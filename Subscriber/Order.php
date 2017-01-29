@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Subscriber;
+namespace DsnRecommendation\Subscriber;
 
 class Order implements \Enlight\Event\SubscriberInterface
 {

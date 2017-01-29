@@ -1,10 +1,10 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components\Neo;
+namespace DsnRecommendation\Components\Neo;
 
 /**
  * Class ClientFactory will create the neo4j client object
- * @package Shopware\Plugins\DsnRecommendation\Components\Neo
+ * @package DsnRecommendation\Components\Neo
  */
 class ClientFactory
 {

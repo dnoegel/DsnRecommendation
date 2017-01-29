@@ -1,6 +1,6 @@
 <?php
 
-use \Shopware\Plugins\DsnRecommendation\Subscriber\Container;
+use \DsnRecommendation\Subscriber\Container;
 require "./../../../../../../tests/Shopware/TestHelper.php";
 require_once __DIR__ . '/../vendor/autoload.php';
 

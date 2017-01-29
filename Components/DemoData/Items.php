@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components\DemoData;
+namespace DsnRecommendation\Components\DemoData;
 
 use Shopware\Components\Api\Resource\Article;
 

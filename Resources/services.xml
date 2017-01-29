@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <!-- Services -->
+        <service id="dsn_recommendation.recommendation"
+            class="DsnRecommendation\Components\Neo\Recommendation">
+
+            <argument type="service" id="dsn_recommendation.neo_client" />
+
+        </service>
+        <service id="dsn_recommendation.sync_service"
+            class="DsnRecommendation\Components\Neo\SyncOrder">
+
+            <argument type="service" id="dsn_recommendation.neo_client" />
+        </service>
+        <service id="dsn_recommendation.demo"
+            class="DsnRecommendation\Components\DemoData\DemoData">
+
+            <argument type="service" id="dsn_recommendation.demo.items" />
+            <argument type="service" id="dsn_recommendation.demo.customer" />
+            <argument type="service" id="dsn_recommendation.demo.order" />
+        </service>
+
+
+        <service id="dsn_recommendation.bulk_exporter"
+                 class="DsnRecommendation\Components\Neo\BulkExporter">
+
+            <argument type="service" id="dsn_recommendation.neo_client" />
+            <argument type="service" id="dsn_recommendation.csv_export" />
+        </service>
+
+        <service id="dsn_recommendation.csv_export"
+                 class="DsnRecommendation\Components\CsvExporter">
+
+            <argument type="service" id="dbal_connection" />
+        </service>
+
+        <service id="dsn_recommendation.demo.items"
+                 class="DsnRecommendation\Components\DemoData\Items">
+
+            <argument type="service" id="dsn_recommendation.article_api" />
+        </service>
+        <service id="dsn_recommendation.demo.customer"
+                 class="DsnRecommendation\Components\DemoData\Customer">
+
+            <argument type="service" id="dsn_recommendation.customer_api" />
+        </service>
+        <service id="dsn_recommendation.demo.order"
+                 class="DsnRecommendation\Components\DemoData\Order">
+        </service>
+
+
+        <service id="api_factory" class="Shopware\Components\Api\Manager" />
+        <service id="dsn_recommendation.customer_api" class="Shopware\Components\Api\Resource\Customer">
+            <factory service="api_factory" method="getResource" />
+            <argument>customer</argument>
+        </service>
+        <service id="dsn_recommendation.article_api" class="Shopware\Components\Api\Resource\Article">
+            <factory service="api_factory" method="getResource" />
+            <argument>article</argument>
+        </service>
+
+        <service id="dsn_recommendation.neo_client_factory"
+                class="DsnRecommendation\Components\Neo\ClientFactory">
+        </service>
+        <service id="dsn_recommendation.neo_client" class="Everyman\Neo4j\Client">
+                <factory service="dsn_recommendation.neo_client_factory" method="factory"/>
+        </service>
+
+
+        <!-- Commands -->
+        <service id="dsn_recommendation.commands.recommendation"
+                 class="DsnRecommendation\Commands\Recommendation">
+            <tag name="console.command" />
+
+        </service>
+        <service id="dsn_recommendation.commands.recommendation_deomo_data"
+                 class="DsnRecommendation\Commands\RecommendationDemoData">
+            <tag name="console.command" />
+
+        </service>
+
+        <!-- Subscriber -->
+        <service id="dsn_recommendation.subscriber.order"
+                 class="DsnRecommendation\Subscriber\Order">
+            <tag name="shopware.event_subscriber" />
+
+        </service>
+        <service id="dsn_recommendation.subscriber.recommendation"
+                 class="DsnRecommendation\Subscriber\Recommendation">
+            <tag name="shopware.event_subscriber" />
+
+        </service>
+
+
+    </services>
+</container>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\Plugins\DsnRecommendation\Components;
+namespace DsnRecommendation\Components;
 
 use Doctrine\DBAL\Connection;
 
